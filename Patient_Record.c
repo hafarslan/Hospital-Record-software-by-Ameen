@@ -161,3 +161,187 @@ int choice1(void)
 
 
  
+void Update_Patient(int *array)
+{
+	FILE *fp = NULL;
+    int status = 0;
+    fp = fopen("Patient_Record.txt","ab+");
+    if(fp == NULL)
+    {
+        printf("File is not opened\n");
+        exit(1);
+    }
+	int opt = 13;
+	int update = 0;
+	int patientId = 0;
+	printf	("Enter the Patient ID No: ");
+	scanf("%d",&patientId);
+
+		if(patientId == p.id)
+		{
+			update = patientId;
+			printf("\t				Make Changes:\n");
+    printf("Patient Name: ");
+	fflush(stdin);
+    fgets(p.name,Macro,stdin);
+
+    printf("CNIC: ");
+	fflush(stdin);
+    fgets(p.CNIC,Macro,stdin);
+
+    printf("Phone Number: ");
+	fflush(stdin);
+    fgets(p.PhoneNumber,Macro,stdin);
+
+	printf("Disease: ");
+	fflush(stdin);
+    fgets(p.name,Macro,stdin);
+
+	printf("isAdmitted: ");
+	fflush(stdin);
+    fgets(p.isAdmitted,Macro,stdin);
+
+	
+		}
+			else if (update != patientId)
+		{	
+	  			printf("No Record Found!\n");
+	  }
+		fclose(fp);
+	}
+
+    
+void Search_Patient(int *arrrays)
+{
+	FILE *fp = NULL;
+    int status = 0;
+    fp = fopen("Patient_Record.txt","ab+");
+    if(fp == NULL)
+    {
+        printf("File is not opened\n");
+        exit(1);
+    }
+	int found = 0;
+	int patientId = 0;
+	printf	("Enter the Patient ID No: ");
+	scanf("%d",&patientId);
+
+	
+		if(patientId == p.id)
+		{
+			found = patientId;
+			printf("Patient Name: %s",p.name);
+			printf("\nPatient CNIC: %s",p.CNIC);
+			printf("\nPhone Number: %s",p.PhoneNumber);
+			printf("\nDisease: %s",p.Disease);
+			printf("\nisAdmitt: %s\n",p.isAdmitted);
+			
+		}
+			else if (found != patientId)
+		{	
+	  			printf("No Record Found!\n");
+	  }
+	fclose(fp);
+	}
+
+void All_Patient(int *arrrays)
+	{
+		int found = 0;
+    unsigned int countPatient = 1;
+
+	FILE *fp = NULL;
+    int status = 0;
+    fp = fopen("Patient_Record.txt","ab+");
+    if(fp == NULL)
+    {
+        printf("File is not opened\n");
+        exit(1);
+    }	 
+	
+    printf("\n\t\t\tPatient Count = %d\n\n",countPatient);
+	 while (sizeof(p), 1, fp)
+    {
+		
+			printf("Patient Name: %s",p.name);
+			printf("\nPatient CNIC: %s",p.CNIC);
+			printf("\nPhone Number: %s",p.PhoneNumber);
+			printf("\nDisease: %s",p.Disease);
+			printf("\nisAdmitt: %s\n",p.isAdmitted);
+
+			found = 1;
+			++countPatient;
+			break;
+	}
+	 fclose(fp);
+    if(!found)
+    {
+        printf("\n\t\t\tNo Record");
+    }
+}
+
+    int Patient_Detail(void)
+{
+	
+    FILE *fp = NULL;
+    int status = 0;
+    fp = fopen("Patient_Record.txt","ab+");
+    if(fp == NULL)
+    {
+        printf("File is not opened\n");
+        exit(1);
+    }
+
+		printf("\n\n");
+        printf("\t-----------------DATA OF PATIENT----------------\n");
+        printf("\t============================================================\n");
+        printf(" Booking ID : %d \n",p.id);
+        printf(" Customer Name  : %s\n",p.name);
+        printf("\n                      			               Date      : 29-04-2022");
+        printf("\n                                                       Time      : 08:00pm");
+        printf("\n                                                       CNIC      : %s",p.CNIC);
+		printf("                                                       Admitted  : %s",p.isAdmitted);
+        printf("\n\t============================================================\n");
+		fclose(fp);
+}
+
+   int Data_Information(void)
+{
+    FILE *fp = NULL;
+    int status = 0;
+    fp = fopen("Patient_Record.txt","ab+");
+    if(fp == NULL)
+    {
+        printf("File is not opened\n");
+        exit(1);
+    }
+	
+	printf("\t\t\tEnter the data of the Patient According this\n");
+	printf("\t\t\t----------------------------\n");
+	printf("\t\t\tID (XXX) \n");
+	printf("\t\t\tName\n");
+	printf("\t\t\tCNIC (XXXXX-XXXXXXX-X)\n");
+	printf("\t\t\tPhone Number:\n");
+
+    printf("\t\t\tDisease\n");
+    printf("\t\t\tisAdmitted\n");
+	return 0;
+	fclose(fp);
+}
+
+int Exits_opt(void)
+{
+	
+    FILE *fp = NULL;
+    int status = 0;
+    fp = fopen("Patient_Record.txt","ab+");
+    if(fp == NULL)
+    {
+        printf("File is not opened\n");
+        exit(1);
+    }
+	int a = 1;
+		printf("\t\tThanks You!\n");
+		exit(1);
+
+		fclose(fp);	
+}
